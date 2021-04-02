@@ -5,9 +5,7 @@ import Navbar from './components/shared/Navbar';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import FetchUser from './components/auth/FetchUser';
-import Tacos from './components/tacos/Tacos';
-
-
+import NoMatch from './components/shared/NoMatch'
 
 
 const App = () => (
@@ -17,17 +15,13 @@ const App = () => (
     <Container>
       <Switch>
         <Route exact path='/' components={Home} />
-        <Protected Routeexact path='/tacos' components={Tacos} />
         <Route exact path='/login' components={Login}/>
         <Route exact path='/register' components={Register}/>
         <Route component={NoMatch} />
       </Switch>
     </Container>
   </FetchUser>
-
-
-  </>
-  
+  </> 
 )
 
 export default App;

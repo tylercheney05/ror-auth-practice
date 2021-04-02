@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { AuthConsumer } from "../../providers/AuthProvider";
 import { Button, Form, Segment, Header } from 'semantic-ui-react';
 
-const Login = ({ handleLogin, history }) = {
+const Login = ({ handleLogin, history }) => {
     const [user, setUser] = useState({ email: '', password: ''})
 
     const handleSubmit = (e) => {
@@ -21,7 +21,7 @@ const Login = ({ handleLogin, history }) = {
                     name='email'
                     value={user.email}
                     placeholder='Email'
-                    onChange={(e, { value }) => setUsereleaseEvents({...user, email: value })}
+                    onChange={(e, { value }) => setUser({...user, email: value })}
                 />
                 <Form.Input
                     label="Password"
@@ -39,3 +39,10 @@ const Login = ({ handleLogin, history }) = {
         </Segment>
     )
 }
+
+const ConnectedLogin = (props) => (
+    <AuthConsumer>
+      { auth => <Login {...props} {...auth} />}
+    </AuthConsumer>
+  )
+  export default ConnectedLogin;
